@@ -3,101 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelancer Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Glass UI Template</title>
     <style>
-        /* Minimal clean design for freelancer portfolios */
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 0;
-            padding: 0;
-            background: #f4f4f4;
-            color: #333;
+        /* Custom Styles */
+        .gradient-text {
+            background: linear-gradient(90deg, rgba(255,0,150,1) 0%, rgba(0,204,255,1) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        .section {
-            padding: 60px 0;
-            text-align: center;
+        .glass {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 10px;
+            padding: 1rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
         }
-        .section.fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
         }
-        .section.fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        /* Hover effects */
-        .hover-effect {
-            transition: box-shadow 0.3s ease, transform 0.3s ease;
-        }
-        .hover-effect:hover {
-            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.6);
-            transform: scale(1.05);
-        }
-        /* Improved modal styles */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0, 0, 0, 0.7);
-            transition: opacity 0.5s ease;
-        }
-        .modal-content {
-            background-color: #fff;
-            margin: 15% auto;
-            padding: 20px;
-            border: 1px solid #888;
-            width: 80%;
-            border-radius: 8px;
-        }
-        /* JavaScript animated sections */
-        .parallax {
-            /* any parallax background image style */
+        .fade-in {
+            animation: fadeIn 0.5s ease-in;
         }
     </style>
 </head>
-<body>
-    <header>
-        <h1>My Freelancer Portfolio</h1>
+<body class="bg-gray-100">
+    <header class="glass fade-in">
+        <h1 class="text-4xl text-center font-bold gradient-text">Welcome to Our Service</h1>
     </header>
-    <section class="section fade-in" id="about-me">
-        <h2>About Me</h2>
-        <p>Enhancing the portfolio experience with animations and interactivity!</p>
+    <section id="services" class="glass fade-in">
+        <h2 class="text-2xl font-bold">Services</h2>
+        <ul class="list-disc list-inside">
+            <li>Web Development</li>
+            <li>Graphic Design</li>
+            <li>SEO Optimization</li>
+        </ul>
     </section>
-    <section class="section fade-in hover-effect" id="projects">
-        <h2>Projects</h2>
-        <p>Here are some of my highlighted works!</p>
+    <section id="projects" class="glass fade-in">
+        <h2 class="text-2xl font-bold">Projects</h2>
+        <div class="modal fade-in">
+            <button class="bg-blue-500 text-white p-2 rounded" onclick="openModal()">View Projects</button>
+            <div id="projectModal" class="hidden fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
+                <div class="bg-white p-5 rounded shadow">
+                    <h3>Your Projects</h3>
+                    <button onclick="closeModal()">Close</button>
+                </div>
+            </div>
+        </div>
     </section>
-    <footer class="fade-in">
-        <p>&copy; 2026 Freelancer Portfolio. All Rights Reserved.</p>
+    <section id="contact" class="glass fade-in">
+        <h2 class="text-2xl font-bold">Contact Us</h2>
+        <form>
+            <input type="text" placeholder="Your Name" class="p-2 rounded border"><br>
+            <input type="email" placeholder="Your Email" class="p-2 rounded border"><br>
+            <textarea placeholder="Your Message" class="p-2 rounded border"></textarea><br>
+            <button type="submit" class="bg-blue-500 text-white p-2 rounded">Send</button>
+        </form>
+    </section>
+    <footer class="glass fade-in">
+        <p>&copy; 2023 Your Company</p>
     </footer>
     <script>
-        // Scroll-triggered animations
-        const sections = document.querySelectorAll('.fade-in');
-        const observer = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    observer.unobserve(entry.target);
-                }
-            });
-        });
-        sections.forEach(section => {
-            observer.observe(section);
-        });
-        // Modal functionality
         function openModal() {
-            document.querySelector('.modal').style.display = 'block';
+            document.getElementById('projectModal').classList.remove('hidden');
         }
         function closeModal() {
-            document.querySelector('.modal').style.display = 'none';
+            document.getElementById('projectModal').classList.add('hidden');
         }
     </script>
 </body>
