@@ -130,10 +130,9 @@
   <div class="grid md:grid-cols-3 gap-6">
     
 <div onclick="openModal(
-  onclick="openModal(
   'Project One',
   'This is a premium project description with more details.',
-  'https://images.unsplash.com/photo-1498050108023-c5249f4df085',
+  'https://picsum.photos/500/300',
   'https://example.com'
 )" 
 class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-95 transition">
@@ -228,10 +227,14 @@ class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-9
 </script>
 <!-- POPUP MODAL -->
 <div id="projectModal" 
+     class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 opacity-0 transition duration-300"
+     onclick="closeModal(event)">
      class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50"
      onclick="closeModal(event)">
 
-  <div class="bg-[#0b1120] p-6 rounded-2xl max-w-md w-full text-center relative"
+  <div id="modalBox"
+     class="bg-[#0b1120] p-6 rounded-2xl max-w-md w-full text-center relative scale-90 opacity-0 transition duration-300"
+     onclick="event.stopPropagation()">
        onclick="event.stopPropagation()">
 
     <img id="modalImage" class="rounded-xl mb-4 w-full" src="" alt="Project Image">
@@ -259,9 +262,17 @@ class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-9
 <script>
 function openModal(title, desc, image, link) {
   const modal = document.getElementById('projectModal');
+  const box = document.getElementById('modalBox');
 
   modal.classList.remove('hidden');
-  modal.classList.add('flex');
+
+  setTimeout(() => {
+    modal.classList.remove('opacity-0');
+    modal.classList.add('opacity-100');
+
+    box.classList.remove('scale-90', 'opacity-0');
+    box.classList.add('scale-100', 'opacity-100');
+  }, 10);
 
   document.getElementById('modalTitle').innerText = title;
   document.getElementById('modalDesc').innerText = desc;
@@ -270,7 +281,18 @@ function openModal(title, desc, image, link) {
 }
 
 function closeModal(event) {
-  document.getElementById('projectModal').classList.add('hidden');
+  const modal = document.getElementById('projectModal');
+  const box = document.getElementById('modalBox');
+
+  box.classList.remove('scale-100', 'opacity-100');
+  box.classList.add('scale-90', 'opacity-0');
+
+  modal.classList.remove('opacity-100');
+  modal.classList.add('opacity-0');
+
+  setTimeout(() => {
+    modal.classList.add('hidden');
+  }, 300);
 }
 </script>
 
