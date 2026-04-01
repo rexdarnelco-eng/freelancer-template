@@ -204,6 +204,34 @@
 
     elements.forEach(el => observer.observe(el));
 </script>
+<!-- POPUP MODAL -->
+<div id="projectModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
 
-</body>
+  <div class="bg-[#0b1120] p-8 rounded-2xl max-w-md w-full text-center relative">
+
+    <h2 id="modalTitle" class="text-2xl font-bold mb-4"></h2>
+    <p id="modalDesc" class="text-slate-400 mb-6"></p>
+
+    <button onclick="closeModal()" 
+      class="bg-cyan-500 text-slate-900 px-6 py-2 rounded-lg font-bold hover:bg-cyan-400">
+      Close
+    </button>
+
+  </div>
+
+</div>
+
+</body><script>
+function openModal(title, desc) {
+  document.getElementById('projectModal').classList.remove('hidden');
+  document.getElementById('projectModal').classList.add('flex');
+
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalDesc').innerText = desc;
+}
+
+function closeModal() {
+  document.getElementById('projectModal').classList.add('hidden');
+}
+</script>
 </html>
