@@ -4,88 +4,44 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Premium Freelancer Portfolio | Template</title>
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <style>
-        /* Modern Cyan Scrollbar */
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #22d3ee; border-radius: 10px; }
+        /* Force these styles to show up */
+        ::-webkit-scrollbar { width: 6px !important; }
+        ::-webkit-scrollbar-track { background: #0f172a !important; }
+        ::-webkit-scrollbar-thumb { background: #22d3ee !important; border-radius: 10px !important; }
         
-        /* Glassmorphism Effect */
-        .glass { 
-            background: rgba(30, 41, 59, 0.7); 
-            backdrop-filter: blur(12px); 
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.1); 
+        .glass-effect { 
+            background: rgba(30, 41, 59, 0.5) !important; 
+            backdrop-filter: blur(12px) !important; 
+            -webkit-backdrop-filter: blur(12px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.1) !important; 
         }
-
-        /* Smooth Scrolling */
         html { scroll-behavior: smooth; }
     </style>
 </head>
-<body class="bg-slate-900 text-white font-sans selection:bg-cyan-500/30">
+<body class="bg-[#0f172a] text-white font-sans">
 
-    <nav class="glass sticky top-0 z-50 p-6 flex justify-between items-center border-b border-white/5">
-        <div class="text-2xl font-bold tracking-tighter">FREE<span class="text-cyan-400">LANCE.</span></div>
-        <a href="#contact" class="bg-cyan-500 hover:bg-cyan-600 text-slate-900 px-5 py-2 rounded-full font-semibold transition-all hover:scale-105">Hire Me</a>
+    <nav class="glass-effect sticky top-0 z-50 p-6 flex justify-between items-center">
+        <div class="text-2xl font-bold tracking-tighter text-white">FREE<span class="text-cyan-400">LANCE.</span></div>
+        <a href="#contact" class="bg-cyan-500 text-slate-900 px-5 py-2 rounded-full font-bold">Hire Me</a>
     </nav>
 
     <header class="py-24 px-6 text-center">
-        <h1 class="text-5xl md:text-7xl font-extrabold mb-6 leading-tight">
-            I build <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">digital experiences.</span>
-        </h1>
-        <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-10">
-            Helping brands scale with custom web solutions, UI/UX design, and technical strategy.
-        </p>
-        <div class="flex gap-4 justify-center">
-            <a href="#work" class="border border-slate-700 px-8 py-3 rounded-xl hover:bg-slate-800 transition-all">View Work</a>
-        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold mb-6">I build <span class="text-cyan-400">digital experiences.</span></h1>
+        <p class="text-slate-400 text-lg max-w-2xl mx-auto mb-10">Helping brands scale with custom web solutions and UI/UX design.</p>
     </header>
 
     <section id="work" class="py-20 px-6 max-w-6xl mx-auto">
-        <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
-            <span class="w-8 h-[2px] bg-cyan-400"></span> Services
-        </h2>
+        <h2 class="text-3xl font-bold mb-12 border-l-4 border-cyan-400 pl-4">Services</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div class="glass p-8 rounded-3xl hover:border-cyan-400/50 transition-all group shadow-2xl">
-                <div class="text-cyan-400 text-4xl mb-6 group-hover:scale-110 transition-transform">✦</div>
-                <h3 class="text-xl font-bold mb-3">Web Development</h3>
-                <p class="text-slate-400 leading-relaxed">Clean, performant code built with modern frameworks and a mobile-first approach.</p>
+            <div class="glass-effect p-8 rounded-3xl shadow-2xl">
+                <div class="text-cyan-400 text-4xl mb-4">✦</div>
+                <h3 class="text-xl font-bold mb-2">Web Development</h3>
+                <p class="text-slate-400">Clean, performant code built with a mobile-first approach.</p>
             </div>
-            
-            <div class="glass p-8 rounded-3xl hover:border-cyan-400/50 transition-all group shadow-2xl">
-                <div class="text-cyan-400 text-4xl mb-6 group-hover:scale-110 transition-transform">◈</div>
-                <h3 class="text-xl font-bold mb-3">UI/UX Design</h3>
-                <p class="text-slate-400 leading-relaxed">Minimalist interfaces designed for the best user experience and engagement.</p>
             </div>
-
-            <div class="glass p-8 rounded-3xl hover:border-cyan-400/50 transition-all group shadow-2xl">
-                <div class="text-cyan-400 text-4xl mb-6 group-hover:scale-110 transition-transform">⬢</div>
-                <h3 class="text-xl font-bold mb-3">Video Editing</h3>
-                <p class="text-slate-400 leading-relaxed">High-quality reels and digital content tailored for brand storytelling.</p>
-            </div>
-        </div>
     </section>
-
-    <section id="contact" class="py-24 px-6 bg-slate-950/50">
-        <div class="max-w-3xl mx-auto text-center border border-white/5 p-10 rounded-3xl glass">
-            <h2 class="text-4xl font-bold mb-4">Let's work together</h2>
-            <p class="mb-10 text-slate-400">Have a project in mind? Drop a message below.</p>
-            <form class="grid gap-5">
-                <input type="text" placeholder="Name" class="bg-slate-900/50 border border-slate-700 p-4 rounded-xl focus:outline-none focus:border-cyan-400 transition-colors">
-                <input type="email" placeholder="Email" class="bg-slate-900/50 border border-slate-700 p-4 rounded-xl focus:outline-none focus:border-cyan-400 transition-colors">
-                <textarea placeholder="Project Details" rows="4" class="bg-slate-900/50 border border-slate-700 p-4 rounded-xl focus:outline-none focus:border-cyan-400 transition-colors"></textarea>
-                <button class="bg-cyan-500 hover:bg-cyan-600 text-slate-900 font-bold py-4 rounded-xl shadow-lg shadow-cyan-500/20 transition-all active:scale-95">Send Inquiry</button>
-            </form>
-        </div>
-    </section>
-
-    <footer class="py-12 text-center text-slate-500 text-sm border-t border-white/5">
-        © 2026 Freelancer Portfolio Template. <br>
-        <span class="text-slate-600">Built with Termux, Acode & Grit.</span>
-    </footer>
 
 </body>
 </html>
