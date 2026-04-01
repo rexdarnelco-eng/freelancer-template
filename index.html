@@ -107,7 +107,7 @@
 
     <div class="grid md:grid-cols-3 gap-8">
 
-        <div class="glass-ui p-10 rounded-3xl hhover:-translate-y-2 transition">
+        <div class="glass-ui p-10 rounded-3xl hover:-translate-y-2 transition">
             <h3 class="text-xl font-bold mb-3">Digital Solutions</h3>
             <p class="text-slate-400">Modern, responsive and fast websites tailored for your business.</p>
         </div>
@@ -129,24 +129,39 @@
 
   <div class="grid md:grid-cols-3 gap-6">
     
-<div onclick="openModal('Project One', 'This is a detailed description of the project.')" 
-     class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] transition">
+<div onclick="openModal(
+  'Project One',
+  'This is a premium project description with more details.',
+  'https://via.placeholder.com/400',
+  'https://example.com'
+)" 
+class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-95 transition">
 
   <h3 class="font-bold text-lg">Project One</h3>
   <p class="text-slate-400 text-sm">Short project description</p>
 
 </div>
 
-<div onclick="openModal('Project Two', 'This is a detailed description of the project.')" 
-     class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] transition">
+<div onclick="openModal(
+  'Project Two',
+  'This is a premium project description with more details.',
+  'https://via.placeholder.com/400',
+  'https://example.com'
+)" 
+class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-95 transition">
 
   <h3 class="font-bold text-lg">Project Two</h3>
-  <p class="text-slate-400 text-sm">Short project description</p>
+  <p class="text-slate-400 text-sm">Short video description</p>
 
 </div>
 
- <div onclick="openModal('Project Three', 'This is a detailed description of the project.')" 
-     class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] transition">
+ <div onclick="openModal(
+  'Project Three',
+  'This is a premium project description with more details.',
+  'https://via.placeholder.com/400',
+  'https://example.com'
+)" 
+class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-95 transition">
 
   <h3 class="font-bold text-lg">Project Three</h3>
   <p class="text-slate-400 text-sm">Short project description</p>
@@ -211,33 +226,53 @@
     elements.forEach(el => observer.observe(el));
 </script>
 <!-- POPUP MODAL -->
-<div id="projectModal" class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
+<div id="projectModal" 
+     class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50"
+     onclick="closeModal(event)">
 
-  <div class="bg-[#0b1120] p-8 rounded-2xl max-w-md w-full text-center relative">
+  <div class="bg-[#0b1120] p-6 rounded-2xl max-w-md w-full text-center relative"
+       onclick="event.stopPropagation()">
 
-    <h2 id="modalTitle" class="text-2xl font-bold mb-4"></h2>
+    <img id="modalImage" class="rounded-xl mb-4 w-full" src="" alt="Project Image">
+
+    <h2 id="modalTitle" class="text-2xl font-bold mb-2"></h2>
+
     <p id="modalDesc" class="text-slate-400 mb-6"></p>
 
-    <button onclick="closeModal()" 
-      class="bg-cyan-500 text-slate-900 px-6 py-2 rounded-lg font-bold hover:bg-cyan-400">
+    <a id="modalLink" href="#" target="_blank"
+       class="bg-cyan-500 text-slate-900 px-6 py-2 rounded-lg font-bold hover:bg-cyan-400 inline-block mb-3">
+       View Live
+    </a>
+
+    <br>
+
+    <button onclick="closeModal(event)">
+      class="text-sm text-slate-400 hover:text-white mt-2">
       Close
     </button>
 
   </div>
 
 </div>
+<!-- MODAL HTML ABOVE -->
 
-</body><script>
-function openModal(title, desc) {
-  document.getElementById('projectModal').classList.remove('hidden');
-  document.getElementById('projectModal').classList.add('flex');
+<script>
+function openModal(title, desc, image, link) {
+  const modal = document.getElementById('projectModal');
+
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
 
   document.getElementById('modalTitle').innerText = title;
   document.getElementById('modalDesc').innerText = desc;
+  document.getElementById('modalImage').src = image;
+  document.getElementById('modalLink').href = link;
 }
 
-function closeModal() {
+function closeModal(event) {
   document.getElementById('projectModal').classList.add('hidden');
 }
 </script>
+
+</body>
 </html>
