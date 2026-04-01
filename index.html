@@ -129,10 +129,13 @@
 
   <div class="grid md:grid-cols-3 gap-6">
     
-    <div class="glass-ui p-6 rounded-2xl">
-      <h3 class="font-bold text-lg">Project One</h3>
-      <p class="text-slate-400 text-sm">Short project description</p>
-    </div>
+<div onclick="openModal('Project One', 'This is a detailed description of the project.')" 
+     class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] transition">
+
+  <h3 class="font-bold text-lg">Project One</h3>
+  <p class="text-slate-400 text-sm">Click to view details</p>
+
+</div>
 
     <div class="glass-ui p-6 rounded-2xl">
       <h3 class="font-bold text-lg">Project Two</h3>
