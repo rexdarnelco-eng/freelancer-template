@@ -16,6 +16,65 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #22d3ee; border-radius: 10px; }
+
+        html { scroll-behavior: smooth; }
+
+        .glass-ui { 
+            background: rgba(30, 41, 59, 0.55);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .gradient-text {
+            background: linear-gradient(to right, #22d3ee, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+ /* --- PREMIUM UPGRADES --- */
+body {
+    /* Subtle Grainy Texture */
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+    background-attachment: fixed;
+}
+
+/* Moving Background Glow */
+body::before {
+    content: "";
+    position: fixed;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(34, 211, 238, 0.05) 0%, rgba(0, 0, 0, 0) 50%);
+    z-index: -1;
+    animation: moveGlow 15s infinite alternate;
+}
+
+@keyframes moveGlow {
+    from { transform: translate(0, 0); }
+    to { transform: translate(10%, 10%); }
+}
+
+/* Premium Card Glow */
+.glass-ui:hover {
+    box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
+    border: 1px solid rgba(34, 211, 238, 0.4);
+}
+
     /* --- PREMIUM BACKGROUND MESH --- */
 body::before {
     content: "";
@@ -77,65 +136,6 @@ body::before {
 .glass-ui.visible {
     opacity: 1;
     transform: translateY(0);
-}
-
-        ::-webkit-scrollbar { width: 6px; }
-        ::-webkit-scrollbar-track { background: #0f172a; }
-        ::-webkit-scrollbar-thumb { background: #22d3ee; border-radius: 10px; }
-
-        html { scroll-behavior: smooth; }
-
-        .glass-ui { 
-            background: rgba(30, 41, 59, 0.55);
-            backdrop-filter: blur(16px);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .gradient-text {
-            background: linear-gradient(to right, #22d3ee, #3b82f6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .fade-in {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
- /* --- PREMIUM UPGRADES --- */
-body {
-    /* Subtle Grainy Texture */
-    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
-    background-attachment: fixed;
-}
-
-/* Moving Background Glow */
-body::before {
-    content: "";
-    position: fixed;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(34, 211, 238, 0.05) 0%, rgba(0, 0, 0, 0) 50%);
-    z-index: -1;
-    animation: moveGlow 15s infinite alternate;
-}
-
-@keyframes moveGlow {
-    from { transform: translate(0, 0); }
-    to { transform: translate(10%, 10%); }
-}
-
-/* Premium Card Glow */
-.glass-ui:hover {
-    box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
-    border: 1px solid rgba(34, 211, 238, 0.4);
 }
 
     </style>
