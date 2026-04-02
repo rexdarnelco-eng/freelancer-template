@@ -92,7 +92,7 @@
   <h2 class="text-3xl font-bold mb-6">About</h2>
   
   <p class="text-slate-400 leading-relaxed">
-    I'm a freelancer helping clients build modern, high-performing digital experiences.
+    I’m a freelancer helping clients build modern, high-performing digital experiences.
     This template is designed to be simple, fast, and easy to customize for any profession.
   </p>
 </section>
@@ -151,7 +151,7 @@ class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-9
 class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-95 transition">
 
   <h3 class="font-bold text-lg">Project Two</h3>
-  <p class="text-slate-400 text-sm">Short video description</p>
+  <p class="text-slate-400 text-sm">Short project description</p>
 
 </div>
 
@@ -173,8 +173,8 @@ class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-9
 
 <!-- CTA -->
 <section class="py-24 px-6 text-center fade-in">
-    <h2 class="text-4xl font-bold mb-6">Let's Build Something Great</h2>
-    <p class="text-slate-400 mb-8">Have an idea? Let's turn it into reality.</p>
+    <h2 class="text-4xl font-bold mb-6">Let’s Build Something Great</h2>
+    <p class="text-slate-400 mb-8">Have an idea? Let’s turn it into reality.</p>
 
     <a href="#contact" class="bg-white text-black px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 transition">
         Start Your Project
@@ -186,7 +186,7 @@ class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-9
     <div class="max-w-3xl mx-auto glass-ui p-10 rounded-3xl transition transform hover:-translate-y-2 hover:scale-[1.02] text-center">
 
         <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
-        <p class="text-slate-400 mb-8">Send a message and I'll respond quickly.</p>
+        <p class="text-slate-400 mb-8">Send a message and I’ll respond quickly.</p>
 
         <!-- Replace with your email -->
         <a href="mailto:your@email.com" class="bg-cyan-500 text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 transition">
@@ -227,17 +227,14 @@ class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-9
 </script>
 <!-- POPUP MODAL -->
 <div id="projectModal" 
-     class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 opacity-0 transition duration-300"
-     onclick="closeModal(event)">
-     class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50"
+     class="fixed inset-0 bg-black/70 hidden flex items-center justify-center z-50 opacity-0 transition duration-300"
      onclick="closeModal(event)">
 
   <div id="modalBox"
-     class="bg-[#0b1120] p-6 rounded-2xl max-w-md w-full text-center relative scale-90 opacity-0 transition duration-300"
-     onclick="event.stopPropagation()">
+       class="bg-[#0b1120] p-6 rounded-2xl max-w-md w-full text-center relative scale-90 opacity-0 transition duration-300"
        onclick="event.stopPropagation()">
 
-    <img id="modalImage" class="rounded-xl mb-4 w-full" src="" alt="Project Image">
+    <img id="modalImage" class="rounded-xl mb-4 w-full h-40 object-cover" src="" alt="Project Image">
 
     <h2 id="modalTitle" class="text-2xl font-bold mb-2"></h2>
 
@@ -248,11 +245,10 @@ class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-9
        View Live
     </a>
 
-    <br>
-
- <button onclick="closeModal(event)" class="text-sm text-slate-400 hover:text-white mt-2">
-  Close
-</button>
+    <button onclick="closeModal(event)" 
+      class="text-sm text-slate-400 hover:text-white mt-2">
+      Close
+    </button>
 
   </div>
 
