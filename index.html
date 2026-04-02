@@ -104,12 +104,12 @@ class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-105 active:scale-95 t
 </section>
 
 <!-- MODAL -->
-<div id="projectModal"
-class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 opacity-0 transition duration-300"
+<div id="projectModal" 
+class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50"
 onclick="closeModal(event)">
 
 <div id="modalBox"
-class="bg-white dark:bg-[#0b1120] p-6 rounded-2xl max-w-md w-full text-center scale-90 opacity-0 transition duration-300"
+class="bg-white dark:bg-[#0b1120] p-6 rounded-2xl max-w-md w-full text-center relative"
 onclick="event.stopPropagation()">
 
 <img id="modalImage" class="rounded-xl mb-4 w-full h-40 object-cover">
@@ -146,18 +146,9 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 <script>
 function openModal(title, desc, image, link) {
   const modal = document.getElementById('projectModal');
-  const box = document.getElementById('modalBox');
 
   modal.classList.remove('hidden');
   modal.classList.add('flex');
-
-  setTimeout(() => {
-    modal.classList.remove('opacity-0');
-    modal.classList.add('opacity-100');
-
-    box.classList.remove('scale-90', 'opacity-0');
-    box.classList.add('scale-100', 'opacity-100');
-  }, 10);
 
   document.getElementById('modalTitle').innerText = title;
   document.getElementById('modalDesc').innerText = desc;
@@ -167,18 +158,9 @@ function openModal(title, desc, image, link) {
 
 function closeModal() {
   const modal = document.getElementById('projectModal');
-  const box = document.getElementById('modalBox');
 
-  box.classList.remove('scale-100', 'opacity-100');
-  box.classList.add('scale-90', 'opacity-0');
-
-  modal.classList.remove('opacity-100');
-  modal.classList.add('opacity-0');
-
-  setTimeout(() => {
-    modal.classList.add('hidden');
-    modal.classList.remove('flex');
-  }, 300);
+  modal.classList.add('hidden');
+  modal.classList.remove('flex');
 }
 </script>
 
