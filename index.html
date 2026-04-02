@@ -145,40 +145,40 @@ document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
 <script>
 function openModal(title, desc, image, link) {
-const modal = document.getElementById('projectModal');
-const box = document.getElementById('modalBox');
+  const modal = document.getElementById('projectModal');
+  const box = document.getElementById('modalBox');
 
-modal.classList.remove('hidden');
-modal.classList.add('flex');
+  modal.classList.remove('hidden');
+  modal.classList.add('flex');
 
-setTimeout(() => {
-modal.classList.remove('opacity-0');
-modal.classList.add('opacity-100');
+  setTimeout(() => {
+    modal.classList.remove('opacity-0');
+    modal.classList.add('opacity-100');
 
-box.classList.remove('scale-90','opacity-0');
-box.classList.add('scale-100','opacity-100');
-}, 10);
+    box.classList.remove('scale-90', 'opacity-0');
+    box.classList.add('scale-100', 'opacity-100');
+  }, 10);
 
-document.getElementById('modalTitle').innerText = title;
-document.getElementById('modalDesc').innerText = desc;
-document.getElementById('modalImage').src = image;
-document.getElementById('modalLink').href = link;
+  document.getElementById('modalTitle').innerText = title;
+  document.getElementById('modalDesc').innerText = desc;
+  document.getElementById('modalImage').src = image;
+  document.getElementById('modalLink').href = link;
 }
 
 function closeModal() {
-const modal = document.getElementById('projectModal');
-const box = document.getElementById('modalBox');
+  const modal = document.getElementById('projectModal');
+  const box = document.getElementById('modalBox');
 
-box.classList.remove('scale-100','opacity-100');
-box.classList.add('scale-90','opacity-0');
+  box.classList.remove('scale-100', 'opacity-100');
+  box.classList.add('scale-90', 'opacity-0');
 
-modal.classList.remove('opacity-100');
-modal.classList.add('opacity-0');
+  modal.classList.remove('opacity-100');
+  modal.classList.add('opacity-0');
 
-setTimeout(() => {
-modal.classList.add('hidden');
-modal.classList.remove('flex');
-}, 300);
+  setTimeout(() => {
+    modal.classList.add('hidden');
+    modal.classList.remove('flex');
+  }, 300);
 }
 </script>
 
