@@ -6,6 +6,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Freelancer Portfolio Template</title>
 
+<!-- Tailwind Config -->
 <script>
 tailwind.config = {
   darkMode: 'class'
@@ -15,30 +16,25 @@ tailwind.config = {
 <script src="https://cdn.tailwindcss.com"></script>
 
 <style>
-::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #0f172a; }
-::-webkit-scrollbar-thumb { background: #22d3ee; border-radius: 10px; }
-
 html { scroll-behavior: smooth; }
 
-.glass-ui { 
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-thumb { background: #22d3ee; border-radius: 10px; }
+
+/* Glass UI */
+.glass-ui {
   background: rgba(30, 41, 59, 0.55);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(255,255,255,0.1);
 }
 
-.gradient-text {
-  background: linear-gradient(to right, #22d3ee, #3b82f6);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
-
+/* SAFE animation (no invisible bug) */
 .fade-in {
   opacity: 0;
   transform: translateY(20px);
-  transition: all 0.8s ease;
+  transition: all 0.6s ease;
 }
-
 .fade-in.show {
   opacity: 1;
   transform: translateY(0);
@@ -56,9 +52,9 @@ html { scroll-behavior: smooth; }
 Free<span class="text-cyan-400">lancer.</span>
 </div>
 
-<div class="flex items-center gap-3">
+<div class="flex gap-3 items-center">
 
-<a href="#contact" class="bg-cyan-500 text-slate-900 px-6 py-2 rounded-full font-bold hover:bg-cyan-400">
+<a href="#contact" class="bg-cyan-500 px-6 py-2 rounded-full font-bold text-slate-900 hover:bg-cyan-400">
 Hire Me
 </a>
 
@@ -74,15 +70,39 @@ class="px-4 py-2 rounded-lg bg-slate-200 dark:bg-white/10 text-slate-900 dark:te
 <header class="py-28 px-6 text-center max-w-5xl mx-auto fade-in">
 
 <h1 class="text-5xl md:text-7xl font-black mb-6">
-I Help Clients Build <br>
-<span class="gradient-text">Stunning Digital Experiences</span>
+Build <span class="text-cyan-400">Digital Experiences</span>
 </h1>
 
-<p class="text-slate-500 dark:text-slate-400 mb-10">
+<p class="text-slate-500 dark:text-slate-400 mb-8">
 Freelancer • Designer • Developer • Creator
 </p>
 
 </header>
+
+<!-- SERVICES -->
+<section class="py-24 px-6 max-w-6xl mx-auto fade-in">
+
+<h2 class="text-4xl font-bold mb-12">Services</h2>
+
+<div class="grid md:grid-cols-3 gap-6">
+
+<div class="glass-ui p-6 rounded-2xl">
+<h3 class="font-bold">Web Development</h3>
+<p class="text-slate-400 text-sm">Modern websites</p>
+</div>
+
+<div class="glass-ui p-6 rounded-2xl">
+<h3 class="font-bold">Design</h3>
+<p class="text-slate-400 text-sm">UI/UX solutions</p>
+</div>
+
+<div class="glass-ui p-6 rounded-2xl">
+<h3 class="font-bold">Content</h3>
+<p class="text-slate-400 text-sm">Creative media</p>
+</div>
+
+</div>
+</section>
 
 <!-- PROJECTS -->
 <section id="projects" class="py-24 px-6 max-w-6xl mx-auto fade-in">
@@ -91,46 +111,55 @@ Freelancer • Designer • Developer • Creator
 
 <div class="grid md:grid-cols-3 gap-6">
 
-<div onclick="openModal('Project One','Premium project description','https://picsum.photos/500/300','https://example.com')" 
-class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-105 active:scale-95 transition">
+<div onclick="openModal('Project One','Premium project','https://picsum.photos/500/300','https://example.com')" 
+class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-105 transition">
 
 <h3 class="font-bold">Project One</h3>
-<p class="text-slate-400 text-sm">Short description</p>
+<p class="text-slate-400 text-sm">Click to view</p>
 
 </div>
 
 </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-24 px-6 text-center fade-in">
+
+<h2 class="text-3xl font-bold mb-4">Contact</h2>
+
+<a href="mailto:your@email.com"
+class="bg-cyan-500 px-8 py-3 rounded-xl font-bold text-slate-900 hover:bg-cyan-400">
+Send Email
+</a>
 
 </section>
 
 <!-- MODAL -->
-<div id="projectModal" 
-class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50"
-onclick="closeModal(event)">
+<div id="projectModal"
+class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50">
 
 <div id="modalBox"
-class="bg-white dark:bg-[#0b1120] p-6 rounded-2xl max-w-md w-full text-center relative"
-onclick="event.stopPropagation()">
+class="bg-white dark:bg-[#0b1120] p-6 rounded-2xl max-w-md w-full text-center scale-95 opacity-0 transition duration-300">
 
 <img id="modalImage" class="rounded-xl mb-4 w-full h-40 object-cover">
 
-<h2 id="modalTitle" class="text-2xl font-bold mb-2"></h2>
+<h2 id="modalTitle" class="text-xl font-bold mb-2"></h2>
 
-<p id="modalDesc" class="text-slate-500 dark:text-slate-400 mb-6"></p>
+<p id="modalDesc" class="text-slate-400 mb-4"></p>
 
 <a id="modalLink" target="_blank"
-class="bg-cyan-500 text-slate-900 px-6 py-2 rounded-lg font-bold">
+class="bg-cyan-500 px-6 py-2 rounded-lg text-slate-900 font-bold">
 View Live
 </a>
 
-<button onclick="closeModal(event)" class="block mt-3 text-sm text-slate-400">
+<button onclick="closeModal()" class="block mt-3 text-sm text-slate-400">
 Close
 </button>
 
 </div>
 </div>
 
-<!-- SCRIPTS -->
+<!-- ANIMATION SCRIPT -->
 <script>
 const observer = new IntersectionObserver(entries => {
 entries.forEach(entry => {
@@ -143,27 +172,41 @@ entry.target.classList.add('show');
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
 
+<!-- MODAL SCRIPT -->
 <script>
 function openModal(title, desc, image, link) {
-  const modal = document.getElementById('projectModal');
+const modal = document.getElementById('projectModal');
+const box = document.getElementById('modalBox');
 
-  modal.classList.remove('hidden');
-  modal.classList.add('flex');
+modal.classList.remove('hidden');
+modal.classList.add('flex');
 
-  document.getElementById('modalTitle').innerText = title;
-  document.getElementById('modalDesc').innerText = desc;
-  document.getElementById('modalImage').src = image;
-  document.getElementById('modalLink').href = link;
+setTimeout(() => {
+box.classList.remove('opacity-0','scale-95');
+box.classList.add('opacity-100','scale-100');
+}, 10);
+
+document.getElementById('modalTitle').innerText = title;
+document.getElementById('modalDesc').innerText = desc;
+document.getElementById('modalImage').src = image;
+document.getElementById('modalLink').href = link;
 }
 
 function closeModal() {
-  const modal = document.getElementById('projectModal');
+const modal = document.getElementById('projectModal');
+const box = document.getElementById('modalBox');
 
-  modal.classList.add('hidden');
-  modal.classList.remove('flex');
+box.classList.remove('opacity-100','scale-100');
+box.classList.add('opacity-0','scale-95');
+
+setTimeout(() => {
+modal.classList.add('hidden');
+modal.classList.remove('flex');
+}, 300);
 }
 </script>
 
+<!-- DARK MODE -->
 <script>
 function toggleTheme() {
 document.documentElement.classList.toggle('dark');
