@@ -16,6 +16,69 @@
     <script src="https://cdn.tailwindcss.com"></script>
     
     <style>
+    /* --- PREMIUM BACKGROUND MESH --- */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: 
+        radial-gradient(at 0% 0%, rgba(34, 211, 238, 0.15) 0px, transparent 50%),
+        radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%);
+    z-index: -1;
+    filter: blur(80px);
+    animation: meshMove 20s infinite alternate;
+}
+
+@keyframes meshMove {
+    from { transform: scale(1); }
+    to { transform: scale(1.2) translate(5%, 5%); }
+}
+
+/* --- THE FLOATING GLASS DOCK --- */
+.glass-dock {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 15px;
+    padding: 12px 25px;
+    background: rgba(15, 23, 42, 0.7);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 99px;
+    z-index: 1000;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+.dock-item {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
+.dock-item:hover {
+    color: #22d3ee;
+    transform: translateY(-3px);
+}
+
+/* --- STAGGERED REVEAL --- */
+.glass-ui {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.glass-ui.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #0f172a; }
         ::-webkit-scrollbar-thumb { background: #22d3ee; border-radius: 10px; }
@@ -81,14 +144,12 @@ body::before {
 <body class="bg-[#0b1120] text-white font-sans">
 
 <!-- NAV -->
-<nav class="glass-ui sticky top-0 z-50 p-6 flex justify-between items-center border-b border-white/5">
-    <div class="text-2xl font-black uppercase tracking-tight">
-        Free<span class="text-cyan-400">lancer.</span>
-    </div>
+<nav <div class="glass-dock">
+    <a href="#services" class="dock-item">Services</a>
+    <a href="#projects" class="dock-item">Projects</a>
+    <a href="#contact" class="dock-item" style="color: #22d3ee;">Hire Me</a>
+</div>
 
-    <a href="#contact" class="bg-cyan-500 hover:bg-cyan-400 text-slate-900 px-6 py-2.5 rounded-full font-bold transition transform hover:scale-105">
-        Hire Me
-    </a>
 </nav>
 
 <!-- HERO -->
@@ -288,40 +349,27 @@ class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-9
 <!-- MODAL HTML ABOVE -->
 
 <script>
-function openModal(title, desc, image, link) {
-  const modal = document.getElementById('projectModal');
-  const box = document.getElementById('modalBox');
+// Premium Staggered Reveal Logic
+const observerOptions = {
+    threshold: 0.1
+};
 
-  modal.classList.remove('hidden');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+        if (entry.isIntersecting) {
+            // This adds a slight delay for each card so they pop up one by one
+            setTimeout(() => {
+                entry.target.classList.add('visible');
+            }, index * 100); 
+        }
+    });
+}, observerOptions);
 
-  setTimeout(() => {
-    modal.classList.remove('opacity-0');
-    modal.classList.add('opacity-100');
+// This tells the script to watch all your project and service cards
+document.querySelectorAll('.glass-ui').forEach(card => {
+    observer.observe(card);
+});
 
-    box.classList.remove('scale-90', 'opacity-0');
-    box.classList.add('scale-100', 'opacity-100');
-  }, 10);
-
-  document.getElementById('modalTitle').innerText = title;
-  document.getElementById('modalDesc').innerText = desc;
-  document.getElementById('modalImage').src = image;
-  document.getElementById('modalLink').href = link;
-}
-
-function closeModal(event) {
-  const modal = document.getElementById('projectModal');
-  const box = document.getElementById('modalBox');
-
-  box.classList.remove('scale-100', 'opacity-100');
-  box.classList.add('scale-90', 'opacity-0');
-
-  modal.classList.remove('opacity-100');
-  modal.classList.add('opacity-0');
-
-  setTimeout(() => {
-    modal.classList.add('hidden');
-  }, 300);
-}
 </script>
 
 </body>
