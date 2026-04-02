@@ -227,29 +227,29 @@ class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-9
 </script>
 <!-- POPUP MODAL -->
 <div id="projectModal" 
-     class="fixed inset-0 bg-black/70 hidden items-center justify-center z-50 opacity-0 transition duration-300"
+     class="fixed inset-0 bg-black/80 hidden flex items-center justify-center z-[100] transition-opacity duration-300"
      onclick="closeModal(event)">
 
   <div id="modalBox"
-     class="bg-[#0b1120] p-6 rounded-2xl max-w-md w-full text-center relative scale-90 opacity-0 transition duration-300"
-     onclick="event.stopPropagation()">
+       class="bg-[#0b1120] p-8 rounded-3xl max-w-[90%] w-[450px] text-center relative border border-white/10 shadow-2xl scale-95 opacity-0 transition-all duration-300"
+       onclick="event.stopPropagation()">
 
-    <img id="modalImage" class="rounded-xl mb-4 w-full" src="" alt="Project Image">
+    <img id="modalImage" class="rounded-2xl mb-6 w-full object-cover aspect-video shadow-lg" src="" alt="Project Image">
 
-    <h2 id="modalTitle" class="text-2xl font-bold mb-2"></h2>
+    <h2 id="modalTitle" class="text-3xl font-bold mb-3 gradient-text"></h2>
 
-    <p id="modalDesc" class="text-slate-400 mb-6"></p>
+    <p id="modalDesc" class="text-slate-400 mb-8 leading-relaxed"></p>
 
-    <a id="modalLink" href="#" target="_blank"
-       class="bg-cyan-500 text-slate-900 px-6 py-2 rounded-lg font-bold hover:bg-cyan-400 inline-block mb-3">
-       View Live
-    </a>
+    <div class="flex flex-col gap-3">
+        <a id="modalLink" href="#" target="_blank"
+           class="bg-cyan-500 text-slate-900 px-8 py-3 rounded-xl font-bold hover:bg-cyan-400 transition transform hover:scale-105 inline-block">
+           View Live Project
+        </a>
 
-    <br>
-
-    <button onclick="closeModal(event)" class="text-sm text-slate-400 hover:text-white mt-2">
-      Close
-    </button>
+        <button onclick="closeModal(event)" class="text-sm text-slate-500 hover:text-white transition py-2">
+          Close Preview
+        </button>
+    </div>
 
   </div>
 </div>
