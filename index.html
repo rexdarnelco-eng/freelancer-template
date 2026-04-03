@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Freelancer Portfolio | Rex darnel</title>
+    <title>Rex Darnel | Portfolio</title>
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -16,8 +16,10 @@
 
         /* --- PREMIUM BACKGROUND MESH --- */
         body {
-            position: relative;
             background-color: #0b1120;
+            background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+            background-attachment: fixed;
+            position: relative;
             overflow-x: hidden;
         }
 
@@ -27,29 +29,29 @@
             top: 0; left: 0;
             width: 100%; height: 100%;
             background: 
-                radial-gradient(at 0% 0%, rgba(34, 211, 238, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.15) 0px, transparent 50%);
+                radial-gradient(at 0% 0%, rgba(34, 211, 238, 0.12) 0px, transparent 50%),
+                radial-gradient(at 100% 100%, rgba(59, 130, 246, 0.12) 0px, transparent 50%);
             z-index: -1;
-            filter: blur(80px);
+            filter: blur(100px);
             animation: meshMove 20s infinite alternate;
         }
 
         @keyframes meshMove {
             from { transform: scale(1); }
-            to { transform: scale(1.2) translate(5%, 5%); }
+            to { transform: scale(1.1) translate(2%, 2%); }
         }
 
-        /* --- GLASS UI & PREMIUM HOVER --- */
         .glass-ui { 
             background: rgba(30, 41, 59, 0.55);
             backdrop-filter: blur(16px);
             border: 1px solid rgba(255,255,255,0.1);
-            transition: all 0.3s ease;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
         .glass-ui:hover {
             box-shadow: 0 0 30px rgba(34, 211, 238, 0.15);
             border: 1px solid rgba(34, 211, 238, 0.4);
+            transform: translateY(-5px) scale(1.02);
         }
 
         .gradient-text {
@@ -58,48 +60,46 @@
             -webkit-text-fill-color: transparent;
         }
 
-        /* --- STAGGERED REVEAL STATES --- */
-        .fade-in {
+        /* --- STAGGERED REVEAL ANIMATION --- */
+        .reveal {
             opacity: 0;
             transform: translateY(30px);
             transition: all 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
-        .fade-in.show {
+        .reveal.active {
             opacity: 1;
             transform: translateY(0);
         }
 
-        /* --- GLASS DOCK STYLES --- */
+        /* --- THE FLOATING DOCK --- */
         .glass-dock {
             position: fixed;
             bottom: 25px;
             left: 50%;
             transform: translateX(-50%);
             display: flex;
-            gap: 15px;
-            padding: 12px 25px;
-            background: rgba(15, 23, 42, 0.7);
+            gap: 20px;
+            padding: 12px 28px;
+            background: rgba(15, 23, 42, 0.8);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.1);
             border-radius: 99px;
             z-index: 1000;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
         }
 
         .dock-item {
-            font-size: 0.8rem;
-            font-weight: 700;
+            font-size: 0.75rem;
+            font-weight: 800;
             color: #94a3b8;
             text-transform: uppercase;
             letter-spacing: 1px;
             transition: all 0.3s;
+            text-decoration: none;
         }
 
-        .dock-item:hover {
-            color: #22d3ee;
-            transform: translateY(-3px);
-        }
+        .dock-item:hover { color: #22d3ee; }
     </style>
 </head>
 
@@ -120,142 +120,112 @@
     </a>
 </nav>
 
-<header class="py-28 px-6 text-center max-w-5xl mx-auto fade-in">
+<header class="py-28 px-6 text-center max-w-5xl mx-auto reveal">
     <span class="inline-block px-4 py-1.5 mb-6 text-xs font-bold tracking-widest text-cyan-400 uppercase bg-cyan-400/10 border border-cyan-400/20 rounded-full">
         Available for Work
     </span>
-
-    <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">
-        I Help Clients Build <br>
-        <span class="gradient-text">Stunning Digital Experiences</span>
-    </h1>
-
-    <p class="text-slate-400 text-lg max-w-xl mx-auto mb-10">
-        Freelancer • Designer • Developer • Creator  
-        <br>
-        Delivering modern solutions that help businesses grow online.
-    </p>
-
-    <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="#contact" class="bg-cyan-500 text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 transition">
-            Hire Me
-        </a>
-        <a href="#services" class="border border-cyan-400 text-cyan-400 px-8 py-4 rounded-xl font-bold hover:bg-cyan-500/10 transition">
-            View Services
-        </a>
+    <h1 class="text-5xl md:text-7xl font-black mb-6 leading-tight">Rex Darnel</h1>
+    <p class="gradient-text text-xl font-bold mb-6">Web Developer | Web Designer | UIX | Video Editor | Writing</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center mt-8">
+        <a href="#contact" class="bg-cyan-500 text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 transition">Hire Me</a>
+        <a href="#services" class="border border-cyan-400 text-cyan-400 px-8 py-4 rounded-xl font-bold hover:bg-cyan-500/10 transition">View Services</a>
     </div>
 </header>
 
-<section class="py-24 px-6 max-w-5xl mx-auto text-center fade-in">
+<section class="py-24 px-6 max-w-5xl mx-auto text-center reveal">
   <h2 class="text-3xl font-bold mb-6">About</h2>
-  <p class="text-slate-400 leading-relaxed">
-    I’m a freelancer helping clients build modern, high-performing digital experiences.
-    This template is designed to be simple, fast, and easy to customize for any profession.
-  </p>
+  <p class="text-slate-400 leading-relaxed">I’m a freelancer helping clients build modern, high-performing digital experiences.</p>
 </section>
 
-<section id="services" class="py-24 px-6 max-w-6xl mx-auto fade-in">
+<section id="services" class="py-24 px-6 max-w-6xl mx-auto reveal">
     <div class="flex items-center gap-4 mb-16">
         <h2 class="text-4xl font-bold">What I Do</h2>
         <div class="h-[1px] flex-grow bg-gradient-to-r from-cyan-400/50 to-transparent"></div>
     </div>
-
     <div class="grid md:grid-cols-3 gap-8">
-        <div class="glass-ui p-10 rounded-3xl hover:-translate-y-2">
+        <div class="glass-ui p-10 rounded-3xl">
             <h3 class="text-xl font-bold mb-3">Digital Solutions</h3>
             <p class="text-slate-400">Modern, responsive and fast websites tailored for your business.</p>
         </div>
-        <div class="glass-ui p-10 rounded-3xl hover:-translate-y-2">
+        <div class="glass-ui p-10 rounded-3xl">
             <h3 class="text-xl font-bold mb-3">Creative Design</h3>
             <p class="text-slate-400">Clean UI/UX and branding that connects with your audience.</p>
         </div>
-        <div class="glass-ui p-10 rounded-3xl hover:-translate-y-2">
+        <div class="glass-ui p-10 rounded-3xl">
             <h3 class="text-xl font-bold mb-3">Content Creation</h3>
             <p class="text-slate-400">Visual and digital content that enhances your online presence.</p>
         </div>
     </div>
 </section>
 
-<section id="projects" class="py-24 px-6 max-w-6xl mx-auto fade-in">
+<section id="projects" class="py-24 px-6 max-w-6xl mx-auto reveal">
   <h2 class="text-4xl font-bold mb-12">Projects</h2>
   <div class="grid md:grid-cols-3 gap-6">
-    <div onclick="openModal('Project One','Premium description.','https://picsum.photos/500/300','https://example.com')" 
-         class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-95">
+    <div onclick="openModal('Project One', 'Premium description.', 'https://picsum.photos/500/300', 'https://example.com')" class="glass-ui p-6 rounded-2xl cursor-pointer">
       <h3 class="font-bold text-lg">Project One</h3>
       <p class="text-slate-400 text-sm">Short project description</p>
     </div>
-    <div onclick="openModal('Project Two','Premium description.','https://picsum.photos/500/300','https://example.com')" 
-         class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-95">
+    <div onclick="openModal('Project Two', 'Premium description.', 'https://picsum.photos/500/300', 'https://example.com')" class="glass-ui p-6 rounded-2xl cursor-pointer">
       <h3 class="font-bold text-lg">Project Two</h3>
       <p class="text-slate-400 text-sm">Short video description</p>
     </div>
-    <div onclick="openModal('Project Three','Premium description.','https://picsum.photos/500/300','https://example.com')" 
-         class="glass-ui p-6 rounded-2xl cursor-pointer hover:scale-[1.03] active:scale-95">
+    <div onclick="openModal('Project Three', 'Premium description.', 'https://picsum.photos/500/300', 'https://example.com')" class="glass-ui p-6 rounded-2xl cursor-pointer">
       <h3 class="font-bold text-lg">Project Three</h3>
       <p class="text-slate-400 text-sm">Short project description</p>
     </div>
   </div>
 </section>
 
-<section id="contact" class="py-24 px-6 fade-in">
+<section id="contact" class="py-24 px-6 reveal">
     <div class="max-w-3xl mx-auto glass-ui p-10 rounded-3xl text-center">
         <h2 class="text-3xl font-bold mb-4">Get In Touch</h2>
-        <p class="text-slate-400 mb-8">Send a message and I’ll respond quickly.</p>
-        <a href="mailto:your@email.com" class="bg-cyan-500 text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 transition">
-            Send Email
-        </a>
+        <a href="mailto:your@email.com" class="bg-cyan-500 text-slate-900 px-8 py-4 rounded-xl font-bold hover:bg-cyan-400 transition">Send Email</a>
     </div>
 </section>
 
 <footer class="py-12 text-center border-t border-white/5 pb-32">
-    <div class="text-lg font-bold mb-3">FREELANCER TEMPLATE</div>
-    <p class="text-slate-500 text-sm mb-6">© 2026 Freelancer Template</p>
+    <p class="text-slate-500 text-sm">© 2026 Rex Darnel • Freelancer Portfolio</p>
 </footer>
 
-<div id="projectModal" 
-     class="fixed inset-0 bg-black/80 hidden flex items-center justify-center z-[2000] opacity-0 transition-opacity duration-300"
-     onclick="closeModal(event)">
-
-  <div id="modalBox"
-     class="bg-[#0b1120] p-8 rounded-3xl max-w-md w-full text-center relative scale-90 opacity-0 transition-all duration-300 border border-white/10 shadow-2xl"
-     onclick="event.stopPropagation()">
-
-    <img id="modalImage" class="rounded-xl mb-6 w-full shadow-lg" src="" alt="Project Image">
-    <h2 id="modalTitle" class="text-2xl font-bold mb-2 gradient-text"></h2>
-    <p id="modalDesc" class="text-slate-400 mb-6"></p>
-
+<div id="projectModal" class="fixed inset-0 bg-black/90 hidden flex items-center justify-center z-[2000] opacity-0 transition-all duration-300" onclick="closeModal()">
+  <div id="modalBox" class="bg-[#0b1120] p-8 rounded-3xl max-w-[90%] w-[450px] text-center relative border border-white/10 scale-90 opacity-0 transition-all duration-300" onclick="event.stopPropagation()">
+    <img id="modalImage" class="rounded-xl mb-6 w-full shadow-lg" src="" alt="Project">
+    <h2 id="modalTitle" class="text-2xl font-bold mb-3 gradient-text"></h2>
+    <p id="modalDesc" class="text-slate-400 mb-8"></p>
     <div class="flex flex-col gap-3">
-        <a id="modalLink" href="#" target="_blank"
-           class="bg-cyan-500 text-slate-900 px-8 py-3 rounded-xl font-bold hover:bg-cyan-400 transition inline-block">
-           View Live
-        </a>
-        <button onclick="closeModal(event)" class="text-sm text-slate-500 hover:text-white transition">
-          Close Preview
-        </button>
+        <a id="modalLink" href="#" target="_blank" class="bg-cyan-500 text-slate-900 px-8 py-3 rounded-xl font-bold hover:bg-cyan-400 transition">View Project</a>
+        <button onclick="closeModal()" class="text-sm text-slate-500 hover:text-white transition">Close</button>
     </div>
   </div>
 </div>
 
 <script>
-    // 1. STAGGERED REVEAL LOGIC
+    // FIX: STAGGERED REVEAL LOGIC
+    const observerOptions = { threshold: 0.1 };
     const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry, index) => {
-            if(entry.isIntersecting){
-                // Adds a tiny delay based on index for a ripple effect
-                setTimeout(() => {
-                    entry.target.classList.add('show');
-                }, index * 100);
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                // If the element is a container with glass-ui children, stagger them
+                const cards = entry.target.querySelectorAll('.glass-ui');
+                if(cards.length > 0) {
+                    cards.forEach((card, i) => {
+                        setTimeout(() => {
+                            card.style.opacity = "1";
+                            card.style.transform = "translateY(0)";
+                        }, i * 150);
+                    });
+                }
+                entry.target.classList.add('active');
             }
         });
-    }, { threshold: 0.1 });
+    }, observerOptions);
 
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-    // 2. MODAL LOGIC
+    // MODAL FUNCTIONS
     function openModal(title, desc, image, link) {
         const modal = document.getElementById('projectModal');
         const box = document.getElementById('modalBox');
-
         document.getElementById('modalTitle').innerText = title;
         document.getElementById('modalDesc').innerText = desc;
         document.getElementById('modalImage').src = image;
@@ -264,22 +234,14 @@
         modal.classList.remove('hidden');
         setTimeout(() => {
             modal.classList.add('opacity-100');
-            box.classList.remove('scale-90', 'opacity-0');
             box.classList.add('scale-100', 'opacity-100');
         }, 10);
     }
 
-    function closeModal(event) {
+    function closeModal() {
         const modal = document.getElementById('projectModal');
-        const box = document.getElementById('modalBox');
-
-        box.classList.remove('scale-100', 'opacity-100');
-        box.classList.add('scale-90', 'opacity-0');
         modal.classList.remove('opacity-100');
-
-        setTimeout(() => {
-            modal.classList.add('hidden');
-        }, 300);
+        setTimeout(() => modal.classList.add('hidden'), 300);
     }
 </script>
 
