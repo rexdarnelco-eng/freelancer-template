@@ -1,14 +1,22 @@
-# 🚀 Premium Freelancer Portfolio Template
-A minimalist, dark-themed portfolio built for high-converting freelance businesses.
+# Freelancer Portfolio Template
 
-### ✨ Features
-- **Mobile Optimized:** Built entirely using mobile tools (Termux/Acode).
-- **Fast Performance:** Pure HTML/Tailwind CSS.
-- **Dark Mode:** Modern aesthetic for developers and designers.
-- **Easy Setup:** Customizable in minutes.
+A modern, responsive portfolio template suitable for all freelancers.
 
-### 🛠️ Setup
-1. Clone this repo.
-2. Edit `index.html` with your details.
-3. Deploy to GitHub Pages.
+## Features
+- Clean and professional design
+- Fully responsive
+- Easy customization
+- Fast and lightweight
 
+## Setup
+1. Download or clone the repository
+2. Open index.html in your browser
+3. Customize text, skills, and projects
+
+## Files
+- index.html
+- style.css
+- script.js
+
+## License
+Free for personal and commercial use
