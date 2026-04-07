@@ -198,3 +198,22 @@ window.addEventListener('scroll', () => {
         }
     });
 });
+
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault(); // Stops the page from refreshing
+
+    // Get the button to show loading state
+    const btn = this.querySelector('button');
+    const originalText = btn.innerHTML;
+    
+    btn.innerHTML = 'Sending...';
+    btn.style.opacity = '0.7';
+
+    // Simulate a 1.5 second "sending" delay
+    setTimeout(() => {
+        alert('Thank you! Your message has been sent successfully.');
+        btn.innerHTML = originalText;
+        btn.style.opacity = '1';
+        this.reset(); // Clears the form fields
+    }, 1500);
+});
