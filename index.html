@@ -213,44 +213,55 @@
 
     <!-- Contact Section -->
     <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <h3>Email</h3>
-                        <p><a href="mailto:john@example.com">john@example.com</a></p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <h3>Phone</h3>
-                        <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <h3>Location</h3>
-                        <p>San Francisco, CA, USA</p>
-                    </div>
+    <div class="container">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p><a href="mailto:john@example.com">john@example.com</a></p>
                 </div>
-                <form class="contact-form" id="contactForm">
-    <div class="form-group">
-        <input type="text" name="name" placeholder="Your Name" required>
-    </div>
-    <div class="form-group">
-        <input type="email" name="email" placeholder="Your Email" required>
-    </div>
-    <div class="form-group">
-        <input type="text" name="subject" placeholder="Subject" required>
-    </div>
-    <div class="form-group">
-        <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Send Message</button>
-</form>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <h3>Phone</h3>
+                    <p><a href="tel:+1234567890">+1 (234) 567-890</a></p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>Location</h3>
+                    <p>San Francisco, CA, USA</p>
+                </div>
             </div>
+
+            <div data-fs-success style="display:none; color: #00ff00; padding: 10px; text-align: center;">
+                ✓ Message sent! I'll get back to you soon.
+            </div>
+            <div data-fs-error style="display:none; color: #ff4d4d; padding: 10px; text-align: center;">
+                Oops! There was an error. Please check the fields.
+            </div>
+
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required data-fs-field>
+                    <span data-fs-error="name"></span>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Your Email" required data-fs-field>
+                    <span data-fs-error="email"></span>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="subject" placeholder="Subject" required data-fs-field>
+                </div>
+                <div class="form-group">
+                    <textarea name="message" placeholder="Your Message" rows="5" required data-fs-field></textarea>
+                    <span data-fs-error="message"></span>
+                </div>
+                <button type="submit" class="btn btn-primary" data-fs-submit-btn>Send Message</button>
+            </form>
         </div>
-    </section>
+    </div>
+</section>
 
     <!-- Footer -->
     <footer class="footer">
@@ -266,5 +277,13 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
+<script>
+  window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+  formspree('initForm', { 
+    formElement: '#contactForm', 
+    formId: 'mojpzvrv' 
+  });
+</script>
 </body>
 </html>

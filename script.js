@@ -54,45 +54,6 @@ filterBtns.forEach(btn => {
     });
 });
 
-// ==================== CONTACT FORM ==================== 
-const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const name = contactForm.querySelector('input[type="text"]').value;
-    const email = contactForm.querySelector('input[type="email"]').value;
-    const subject = contactForm.querySelector('input[type="text"]:nth-of-type(2)').value;
-    const message = contactForm.querySelector('textarea').value;
-    
-    // Simple validation
-    if (!name || !email || !subject || !message) {
-        alert('Please fill out all fields');
-        return;
-    }
-    
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Please enter a valid email');
-        return;
-    }
-    
-    // Show success message
-    alert(`Thank you ${name}! Your message has been sent successfully.`);
-    
-    // Reset form
-    contactForm.reset();
-    
-    // In real scenario, you would send this data to a server
-    console.log({
-        name,
-        email,
-        subject,
-        message
-    });
-});
 
 // ==================== SMOOTH SCROLL ANIMATION ==================== 
 const observerOptions = {
